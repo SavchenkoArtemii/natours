@@ -12,6 +12,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const hpp = require("hpp");
 const path = require('path');
+const compression = require('compression');
 
 
 const app = express();
@@ -62,6 +63,8 @@ app.use(hpp({
         'price'
       ]
 }));
+
+app.use(compression());
 
 // test middlewares
 app.use((req, res, next) => {
